@@ -8,15 +8,28 @@
     tools:context=".MainActivity">
 
     <com.aar.tapholdupbutton.TapHoldUpButton
+        android:id="@+id/btn"
         android:layout_width="76dp"
         android:layout_height="76dp"
         app:thub_ringStrokeWidth="2dp"
         app:thub_ringColor="#DDDDDD"
         app:thub_circleColor="#DDDDDD"
-        app:thub_circleGap="4dp"
+        app:thub_circleGap="3dp"
+        app:thub_circleColorOhHold="#FA1A1A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"
+        tools:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
