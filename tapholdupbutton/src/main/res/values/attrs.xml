@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TapHoldUpButton">
+        <attr name="thub_ringColor" format="color"/>
+        <attr name="thub_ringStrokeWidth" format="dimension"/>
+        <attr name="thub_circleColor" format="color"/>
+        <attr name="thub_circleGap" format="dimension"/>
+    </declare-styleable>
+</resources>
