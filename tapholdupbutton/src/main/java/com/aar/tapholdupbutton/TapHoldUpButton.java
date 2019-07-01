@@ -64,6 +64,15 @@ public class TapHoldUpButton extends View {
         mClickListener = listener;
     }
 
+    public void resetLongHold() {
+        if (!longHold)
+            return;
+
+        touchState = -1;
+        startUpAnimation();
+        endLongHold();
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         float halfWidth = getWidth() / 2f;
@@ -103,15 +112,13 @@ public class TapHoldUpButton extends View {
                 startDownAnimation();
             }
             return true;
-        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+        } else if (event.getAction() == MotionEvent.ACTION_UP &&
+                touchState == MotionEvent.ACTION_DOWN) {
             touchState = MotionEvent.ACTION_UP;
             startUpAnimation();
             mHandler.removeCallbacksAndMessages(null);
             if (longHold) {
-                longHold = false;
-                startColorChangeAnimation(mCircleColorOnHold, mCircleColor);
-                if (mClickListener != null)
-                    mClickListener.onLongHoldEnd(TapHoldUpButton.this);
+                endLongHold();
             } else {
                 if (mClickListener != null)
                     mClickListener.onClick(TapHoldUpButton.this);
@@ -120,6 +127,13 @@ public class TapHoldUpButton extends View {
         }
 
         return super.onTouchEvent(event);
+    }
+
+    private void endLongHold() {
+        longHold = false;
+        startColorChangeAnimation(mCircleColorOnHold, mCircleColor);
+        if (mClickListener != null)
+            mClickListener.onLongHoldEnd(TapHoldUpButton.this);
     }
 
     private void startColorChangeAnimation(final int startColor, final int endColor) {
