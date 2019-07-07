@@ -1,4 +1,7 @@
 # TapHoldUpButton
+
+[![](https://jitpack.io/v/abdularis/TapHoldUpButton.svg)](https://jitpack.io/#abdularis/TapHoldUpButton)
+
 Tap on it, Hold on it, it's easier to show you the preview.
 
 # Preview
