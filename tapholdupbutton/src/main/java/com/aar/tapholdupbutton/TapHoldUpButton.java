@@ -35,6 +35,7 @@ public class TapHoldUpButton extends View {
     private int mCircleColor;
     private int mCircleColorOnHold;
 
+    private boolean longHoldEnabled = true;
     private float mScalePercentage = 1f;
     private boolean longHold = false;
     private int touchState;
@@ -62,6 +63,10 @@ public class TapHoldUpButton extends View {
 
     public void setOnButtonClickListener(OnButtonClickListener listener) {
         mClickListener = listener;
+    }
+
+    public void enableLongHold(boolean enable) {
+        longHoldEnabled = enable;
     }
 
     public void resetLongHold() {
@@ -100,6 +105,8 @@ public class TapHoldUpButton extends View {
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        if (!longHoldEnabled)
+                            return;
                         if (touchState == MotionEvent.ACTION_DOWN) {
                             longHold = true;
                             startColorChangeAnimation(mCircleColor, mCircleColorOnHold);
