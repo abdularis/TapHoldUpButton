@@ -12,9 +12,10 @@ Add repository
 ~~~gradle
 allprojects {
     repositories {
-    ...
-    maven {
-        url 'https://jitpack.io' }
+        ...
+        maven {
+            url 'https://jitpack.io'
+        }
     }
 }
 ~~~
@@ -22,7 +23,7 @@ allprojects {
 Add dependency
 ~~~gradle
 dependencies {
-    implementation 'com.github.abdularis:TapHoldUpButton:0.1.1'
+    implementation 'com.github.abdularis:TapHoldUpButton:0.1.2'
 }
 ~~~
 
